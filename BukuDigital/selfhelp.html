@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>E-Book Library</title>
+  <style>
+    *, html, body {
+      margin: 0;
+      font-family: sans-serif;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .Bg1 {
+      background-color: #0f0f54;
+    }
+
+    .Bg1 h2 {
+      padding: 20px 0 0 40px;
+      color: white;
+    }
+
+    .nav {
+      display: flex;
+      padding: 50px 0 20px;
+    }
+
+    .nav ul {
+      display: flex;
+      gap: 20px;
+      list-style: none;
+      color: white;
+      padding-left: 40px;
+    }
+
+    .nav li {
+      color: white;
+    }
+
+    input {
+      width: 1000px;
+      height: 30px;
+      border: solid rgb(215, 211, 211);
+      border-radius: 20px;
+      padding-left: 20px;
+    }
+
+    .search {
+      display: flex;
+      justify-content: center;
+      padding: 10px 0 20px;
+      padding-bottom: 20px;
+    }
+
+    .search button {
+      width: 37px;
+      height: 37px;
+      border-radius: 100%;
+      background-color: #0f0f54;
+      color: white;
+      border: none;
+      margin-left: 10px;
+    }
+
+    .pembungkus {
+      display: flex;
+      justify-content: start;
+    }
+
+    .countainer {
+      width: 1150px;
+      padding: 20px;
+      border: none;
+    }
+
+    .scroll-ebooks {
+      display: flex;
+      overflow-x: auto;
+      scroll-behavior: smooth;
+      gap: 1rem;
+      padding: 1rem 0;
+      border-bottom: 1px solid #ccc;
+    }
+
+    .scroll-ebooks::-webkit-scrollbar {
+      height: 8px;
+    }
+
+    .scroll-ebooks::-webkit-scrollbar-thumb {
+      background-color: #888;
+      border-radius: 4px;
+    }
+
+    .scroll-ebooks::-webkit-scrollbar-thumb:hover {
+      background: #555;
+    }
+
+    .buku {
+      flex: 0 0 auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      width: 170px;
+      height: 250px;
+      position: relative;
+    }
+
+    .buku img {
+      height: 250px;
+      width: 100%;
+      object-fit: cover;
+    }
+
+    .deskripsi {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding-left: 10px;
+      background-color: rgba(0, 0, 0, 0.646);
+      color: white;
+      height: 50px;
+      width: 160px;
+      font-size: 13px;
+      position: absolute;
+      bottom: 0;
+    }
+
+    .Categories {
+      display: flex;
+      justify-content: space-evenly;
+      padding-top: 20px;
+    }
+
+    .popular h1{
+      padding-left: 20px;
+      padding-bottom: 5px;
+      padding-top: 20px;
+    }
+
+
+    .kategori, .next {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 200px;
+      height: 50px;
+      border-radius: 10px;
+      border: none;
+      box-shadow: 4px 4px 4px #868689;
+      font-size: 16px;
+    }
+
+    .kategori {
+      background-color: rgb(190, 190, 190);
+      color: black;
+    }
+
+    .kategori:hover {
+      background-color: #0f0f54;
+      color: white;
+    }
+
+    .next {
+      background-color: #0f0f54;
+      color: white;
+    }
+
+    .menu {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100px;
+      background-color: rgb(221, 219, 219);
+      padding-top: 10px;
+      gap: 10px;
+      margin-left: 20px;
+    }
+
+    .menu button {
+      width: 75px;
+      height: 60px;
+      border-radius: 10px;
+      border: solid rgb(220, 220, 220);
+      background-color: rgb(197, 193, 193);
+      cursor: pointer;
+    }
+
+    .tombolmenu:hover {
+      background-color: #0f0f54;
+      color: white;
+    }
+
+    .menu h3 {
+      padding: 20px 0;
+    }
+
+    footer {
+      background-color: #0f0f54;
+      text-align: center;
+      padding: 20px;
+      color: white;
+    }
+
+    .featured-container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding-bottom: 20px;
+      padding-top: 20px;
+    }
+
+    .terpilih{
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.terpilih, .fiksi{
+    box-shadow: none;
+}
+.fiksi{
+    display: flex;
+    align-content: center;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color:#0f0f54;
+    width: 200px;
+    height: 50px;
+    border-radius: 10px;
+    border: none;
+    color: white;
+    gap: 100px;
+}
+.fiksi a{
+    color: white;
+}
+
+    
+  </style>
+</head>
+<body>
+
+  <div class="Bg1">
+    <h2>E-Book Library</h2>
+    <div class="nav">
+      <nav>
+        <ul>
+          <li><a href="Main.html">Home</a></li>
+          <li><a href="popular.html">Popular</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="Login.html">Login</a></li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+
+  <div class="pembungkus">
+    <div class="countainer">
+
+      <div class="search">
+        <input type="text" placeholder="Search Book..." />
+        <button>X</button>
+      </div>
+
+       <div class="terpilih">
+                    <button class="fiksi">
+                        <p>Self-Help</p>
+                        <a href="Main.html"><p>X</p> </a> 
+                    </button>
+            </div>
+
+      <div class="featured-container">
+        <div class="featured"><h1>Self-Help E-Books</h1></div>
+        <div class="scroll-ebooks">
+          <div class="buku">
+            <img src="fiksi1.jpg" alt="Book 1" />
+            <div class="deskripsi">
+              <h3>Web Development</h3>
+              <p>By Anna Jhonson</p>
+            </div>
+          </div>
+
+          <div class="buku">
+            <img src="Bussines1.jpg" alt="Book 2" />
+            <div class="deskripsi">
+              <h3>Marketing 101</h3>
+              <p>By Tom Lee</p>
+            </div>
+          </div>
+
+          <div class="buku">
+            <img src="Science1.jpg" alt="Book 3" />
+            <div class="deskripsi">
+              <a href="fiction1.html">
+                <h3>Astronomy Guide</h3>
+                <p>By Luna Ray</p>
+              </a>
+            </div>
+          </div>
+
+          <div class="buku">
+            <img src="Selfhelp1.jpg" alt="Book 4" />
+            <div class="deskripsi">
+              <h3>Self Motivation</h3>
+              <p>By John Hope</p>
+            </div>
+          </div>
+
+          <div class="buku">
+            <img src="fiksi2.jpeg" alt="Book 5" />
+            <div class="deskripsi">
+              <h3>Self Motivation</h3>
+              <p>By John Hope</p>
+            </div>
+          </div>
+
+          <div class="buku">
+            <img src="bisnis2.webp" alt="Book 6" />
+            <div class="deskripsi">
+              <h3>Self Motivation</h3>
+              <p>By John Hope</p>
+            </div>
+          </div>
+
+          <div class="buku">
+            <img src="science2.webp" alt="Book 7" />
+            <div class="deskripsi">
+              <h3>Self Motivation</h3>
+              <p>By John Hope</p>
+            </div>
+          </div>
+
+          <div class="buku">
+            <img src="selfhelp2.png" alt="Book 8" />
+            <div class="deskripsi">
+              <h3>Self Motivation</h3>
+              <p>By John Hope</p>
+            </div>
+          </div>
+
+          <div class="buku">
+            <img src="fiksi3.jpg" alt="Book 9" />
+            <div class="deskripsi">
+              <h3>Self Motivation</h3>
+              <p>By John Hope</p>
+            </div>
+          </div>
+
+          <div class="buku">
+            <img src="bisnis3.webp" alt="Book 10" />
+            <div class="deskripsi">
+              <h3>Self Motivation</h3>
+              <p>By John Hope</p>
+            </div>
+          </div>
+
+           <div class="buku">
+            <img src="selfhelp3.webp" alt="Book 10" />
+            <div class="deskripsi">
+              <h3>Self Motivation</h3>
+              <p>By John Hope</p>
+            </div>
+          </div>
+
+           <div class="buku">
+            <img src="fiksi4.jpg" alt="Book 10" />
+            <div class="deskripsi">
+              <h3>Self Motivation</h3>
+              <p>By John Hope</p>
+            </div>
+          </div>
+
+           <div class="buku">
+            <img src="bisnis4.jpg" alt="Book 10" />
+            <div class="deskripsi">
+              <h3>Self Motivation</h3>
+              <p>By John Hope</p>
+            </div>
+          </div>
+
+           <div class="buku">
+            <img src="science4.jpg" alt="Book 10" />
+            <div class="deskripsi">
+              <h3>Self Motivation</h3>
+              <p>By John Hope</p>
+            </div>
+          </div>
+
+           <div class="buku">
+            <img src="selfhelp4.jpg" alt="Book 10" />
+            <div class="deskripsi">
+              <h3>Self Motivation</h3>
+              <p>By John Hope</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="popular"><h1>Popular Categories</h1></div>
+      <div class="Categories">
+        <a href="fiction.html"><button class="kategori">Fiction</button></a>
+        <a href="bussines.html"><button class="kategori">Business</button></a>
+        <a href="science.html"><button class="kategori">Science</button></a>
+        <a href="Main2.html"><button class="next">></button></a>
+      </div>
+    </div>
+
+    <div class="menu">
+      <h3>Menu</h3>
+      <button class="tombolmenu">Account</button>
+      <button class="tombolmenu">Bookmark</button>
+      <button class="tombolmenu">History</button>
+      <button class="tombolmenu">Settings</button>
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2025 E-Book Library
+  </footer>
+
+</body>
+</html>

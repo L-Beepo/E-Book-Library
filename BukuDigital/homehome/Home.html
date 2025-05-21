@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>E-Book Library</title>
+  <style>
+    *, html, body {
+      margin: 0;
+      font-family: sans-serif;
+    }
+
+    .nav, ul, li {
+      display: flex;
+      gap: 20px;
+      color: white;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    .nav {
+      padding: 50px 0 20px;
+    }
+
+    .Bg1 {
+      background-color: #0f0f54;
+    }
+
+    .Bg1 h2 {
+    padding-left: 36px;
+      padding-bottom: 20px;
+      padding-top: 20px;
+      color: white;
+    }
+
+    input {
+      width: 1000px;
+      height: 30px;
+      border: solid rgb(215, 211, 211);
+      border-radius: 20px;
+      padding-left: 20px;
+    }
+
+    .search {
+      display: flex;
+      justify-content: center;
+      padding: 10px 0 20px;
+    }
+
+    .search button {
+      width: 37px;
+      height: 37px;
+      border-radius: 100%;
+      background-color: #0f0f54;
+      color: white;
+      border: none;
+      margin-left: 10px;
+    }
+
+    .pembungkus {
+      display: flex;
+      justify-content: start;
+    }
+
+    .countainer {
+      width: 1150px;
+      padding: 20px;
+      border: none;
+    }
+
+    .book {
+      display: flex;
+      justify-content: start;
+      gap: 20px;
+      padding: 20px 0 80px 20px;
+    }
+
+    .buku {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      width: 170px;
+      height: 250px;
+      position: relative;
+    }
+
+    .buku img {
+      height: 250px;
+      width: 100%;
+      object-fit: cover;
+    }
+
+    .deskripsi {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding-left: 10px;
+      background-color: rgba(0, 0, 0, 0.646);
+      color: white;
+      height: 50px;
+      width: 160px;
+      font-size: 13px;
+      position: absolute;
+      bottom: 0;
+    }
+
+    .buku a {
+      text-decoration: none;
+      color: white;
+    }
+
+    .Categories {
+      display: flex;
+      justify-content: space-evenly;
+      padding-top: 20px;
+    }
+
+    .kategori, .next {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 200px;
+      height: 50px;
+      border-radius: 10px;
+      border: none;
+      box-shadow: 4px 4px 12px #3e3e40;
+      font-size: 16px;
+    }
+
+    .kategori {
+      background-color: rgb(190, 190, 190);
+      color: black;
+    }
+
+    .kategori:hover {
+      background-color: #0f0f54;
+      color: white;
+    }
+
+    .next {
+      background-color: #0f0f54;
+      color: white;
+    }
+
+    .menu {
+      border: none;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100px;
+      background-color: rgb(221, 219, 219);
+      padding-top: 10px;
+      gap: 10px;
+      margin-left: 120px;
+    }
+
+    .menu button {
+      width: 75px;
+      height: 60px;
+      border-radius: 10px;
+      border: solid rgb(220, 220, 220);
+      background-color: rgb(197, 193, 193);
+    }
+
+    .tombolmenu:hover {
+      background-color: #0f0f54;
+      color: white;
+    }
+
+    .menu a {
+      color: black;
+    }
+
+    .menu h3 {
+      padding: 20px 0;
+    }
+
+    footer {
+      background-color: #0f0f54;
+      text-align: center;
+      padding: 20px;
+      color: white;
+    }
+
+    .featured-container {
+        max-width: 1200px; 
+        margin: 0 auto;
+        padding: 0 1rem;
+    }
+
+    .scroll-ebooks {
+        display: flex;
+        overflow-x: auto;
+        scroll-behavior: smooth;
+        gap: 1rem;
+        padding: 1rem 0;
+    }   
+
+
+    .scroll-ebooks::-webkit-scrollbar {
+        height: 8px;
+    }   
+    .scroll-ebooks::-webkit-scrollbar-thumb {
+        background-color: #888;
+        border-radius: 4px;
+    }
+    .scroll-ebooks::-webkit-scrollbar-thumb:hover {
+        background: #555;
+    }
+
+    .ebook-card {
+        min-width: 200px;
+        flex-shrink: 0;
+        background: white;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        border-radius: 8px;
+        overflow: hidden;
+    }
+    .featured-container {
+        max-width: 1000px;
+    margin: 0 auto;
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="Bg1">
+    <h2>E-Book Library</h2>
+    <div class="nav">
+      <nav>
+        <ul>
+          <a href="Home.html"><li>Home</li></a>
+          <a href="popular.html"><li>Popular</li></a>
+          <a href="about.html"><li>About</li></a>
+          <a href="Login.html"><li>Login</li></a>
+        </ul>
+      </nav>
+    </div>
+  </div>
+
+  <div class="pembungkus">
+    <div class="countainer">
+
+      <div class="search">
+        <input type="text" placeholder="Search Book..." />
+        <button>X</button>
+      </div>
+
+      <div class="featured-container">
+      <h1>Featured E-Books</h1>
+      <div class="scroll-ebooks">
+      <div class="book">
+        <div class="buku">
+          <img src="fiksi1.jpg" alt="Book 1" />
+          <div class="deskripsi">
+            <h3>Web Development</h3>
+            <p>By Anna Jhonson</p>
+          </div>
+        </div>
+
+        <div class="buku">
+          <img src="Bussines1.jpg" alt="Book 2" />
+          <div class="deskripsi">
+            <h3>Web Development</h3>
+            <p>By Anna Jhonson</p>
+          </div>
+        </div>
+
+        <div class="buku">
+          <img src="Science1.jpg" alt="Book 3" />
+          <div class="deskripsi">
+            <a href="fiction1.html">
+              <h3>Web Development</h3>
+              <p>By Anna Jhonson</p>
+            </a>
+          </div>
+        </div>
+
+        <div class="buku">
+          <img src="Selfhelp1.jpg" alt="Book 4" />
+          <div class="deskripsi">
+            <h3>Web Development</h3>
+            <p>By Anna Jhonson</p>
+          </div>
+        </div>
+      </div>
+      </div>
+      </div>
+
+      <h1>Popular Categories</h1>
+      <div class="Categories">
+        <a href="fiction.html">
+          <button class="kategori">Fiction</button>
+        </a>
+        <a href="bussines.html">
+          <button class="kategori">Business</button>
+        </a>
+        <a href="science.html">
+          <button class="kategori">Science</button>
+        </a>
+        <a href="selfhelp.html">
+          <button class="kategori">Self-Help</button>
+        </a>
+        <a href="#">
+          <button class="next">></button>
+        </a>
+      </div>
+    </div>
+
+    <div class="menu">
+      <h3>Menu</h3>
+      <button class="tombolmenu">Account</button>
+      <button class="tombolmenu">Bookmark</button>
+      <button class="tombolmenu">History</button>
+      <button class="tombolmenu">Settings</button>
+    </div>
+  </div>
+
+  <footer>
+    &copy; 20xx E-Book Library
+  </footer>
+
+</body>
+</html>

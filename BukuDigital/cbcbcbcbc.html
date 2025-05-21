@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Game UI Mockup</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { font-family: sans-serif; margin: 0; background: #e0e0e0; }
+    .page { display: none; padding: 20px; }
+    .active { display: block; }
+    .nav-bar {
+      display: flex;
+      background: #333;
+      color: white;
+      padding: 10px;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .nav-bar button {
+      margin-left: 10px;
+      background: #555;
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      cursor: pointer;
+    }
+    .section { margin: 20px 0; }
+    button { padding: 10px 20px; margin-top: 10px; }
+    .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+    .grid div { background: white; height: 100px; display: flex; justify-content: center; align-items: center; border: 1px solid #ccc; }
+  </style>
+</head>
+<body>
+
+<!-- Login Page -->
+<div id="loginPage" class="page active">
+  <h2>Login</h2>
+  <input type="text" placeholder="Username"><br>
+  <button onclick="goTo('homePage')">Login</button>
+</div>
+
+<!-- Signin Page -->
+<div id="signinPage" class="page">
+  <h2>Sign Up</h2>
+  <input type="text" placeholder="New Username"><br>
+  <button onclick="goTo('homePage')">Sign Up</button>
+</div>
+
+<!-- Home Page -->
+<div id="homePage" class="page">
+  <div class="nav-bar">
+    <div>
+      <strong>Game UI</strong>
+    </div>
+    <div>
+      <button onclick="goTo('inventoryPage')">Inventory</button>
+      <button onclick="goTo('playPage')">Play</button>
+      <button onclick="goTo('storePage')">Store</button>
+    </div>
+  </div>
+</div>
+
+<!-- Inventory Page -->
+<div id="inventoryPage" class="page">
+  <div class="nav-bar">
+    <div>Inventory</div>
+    <div><button onclick="goTo('homePage')">Back</button></div>
+  </div>
+  <p>Daftar item kamu akan muncul di sini.</p>
+</div>
+
+<!-- Play Page -->
+<div id="playPage" class="page">
+  <div class="nav-bar">
+    <div>Play</div>
+    <div><button onclick="goTo('homePage')">Back</button></div>
+  </div>
+  <div class="section">
+    <div style="background:#fff;height:100px;border:1px solid #ccc;">Peta Dunia / Story</div>
+    <button onclick="alert('Mulai Pertarungan!')">Start</button>
+  </div>
+</div>
+
+<!-- Store Page -->
+<div id="storePage" class="page">
+  <div class="nav-bar">
+    <div>Store</div>
+    <div><button onclick="goTo('homePage')">Back</button></div>
+  </div>
+  <div class="grid">
+    <div>Item 1</div>
+    <div>Item 2</div>
+    <div>Item 3</div>
+    <div>Item 4</div>
+    <div>Item 5</div>
+    <div>Item 6</div>
+  </div>
+</div>
+
+<script>
+  function goTo(pageId) {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    document.getElementById(pageId).classList.add('active');
+  }
+</script>
+
+</body>
+</html>
